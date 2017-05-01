@@ -96,8 +96,8 @@ Private Sub Command1_Click()
         login.Open "select*from user where username = '" & Text1.Text & "' and password = md5('" & Text2.Text & "')", conn
         If login.RecordCount > 0 Then
             MsgBox "Anda Berhasil Login", vbInformation, "Login Berhasil"
-            Me.Cls
             frmMain.Show
+            Unload frmLogin
         Else
             MsgBox "Username/Password salah", vbCritical, "Login Gagal"
             kosongkan
