@@ -1,0 +1,12 @@
+Line 55: Class MSDataGridLib.DataGrid of control dgbarangin was not a loaded control class.
+Line 61: The property name _ExtentX in dgbarangin is invalid.
+Line 62: The property name _ExtentY in dgbarangin is invalid.
+Line 63: The property name _Version in dgbarangin is invalid.
+Line 65: The property name HeadLines in dgbarangin is invalid.
+Line 66: The property name RowHeight in dgbarangin is invalid.
+Line 75: The property name HeadFont in dgbarangin is invalid.
+Line 85: The property name ColumnCount in dgbarangin is invalid.
+Line 98: The property name Column00 in dgbarangin is invalid.
+Line 111: The property name Column01 in dgbarangin is invalid.
+Line 112: The property name SplitCount in dgbarangin is invalid.
+Line 118: The property name Split0 in dgbarangin is invalid.

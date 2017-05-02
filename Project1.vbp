@@ -1,7 +1,6 @@
 Type=Exe
 Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
 Reference=*\G{B691E011-1797-432E-907A-4D8C69339129}#6.1#0#C:\Program Files (x86)\Common Files\System\ado\msado15.dll#Microsoft ActiveX Data Objects 6.1 Library
-Object={CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0; MSDATGRD.OCX
 Form=frmMain.frm
 Module=Module1; Module1.bas
 Form=frmLogin.frm
@@ -10,6 +9,9 @@ Form=FrmBarangIn.frm
 Form=frmBarangOut.frm
 Form=frmAddBarangIn.frm
 Form=frmAddBarangOut.frm
+Form=frmData.frm
+Object={CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0; MSDATGRD.OCX
+Form=frmUser.frm
 IconForm="frmMain"
 Startup="Sub Main"
 HelpFile=""

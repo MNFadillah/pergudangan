@@ -1,33 +1,62 @@
 VERSION 5.00
 Object = "{CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0"; "MSDATGRD.OCX"
-Begin VB.Form FrmBarangIn 
-   Caption         =   "Form1"
-   ClientHeight    =   5505
+Begin VB.Form frmUser 
+   Caption         =   "User"
+   ClientHeight    =   5190
    ClientLeft      =   120
    ClientTop       =   465
-   ClientWidth     =   10350
+   ClientWidth     =   8805
    LinkTopic       =   "Form1"
-   ScaleHeight     =   5505
-   ScaleWidth      =   10350
+   ScaleHeight     =   5190
+   ScaleWidth      =   8805
    StartUpPosition =   3  'Windows Default
    Begin VB.Frame Frame2 
-      Appearance      =   0  'Flat
-      BackColor       =   &H80000005&
-      Caption         =   "Data"
-      ForeColor       =   &H80000008&
-      Height          =   5295
-      Left            =   3960
+      Caption         =   "DATA"
+      Height          =   4935
+      Left            =   3600
       TabIndex        =   1
       Top             =   120
-      Width           =   6255
-      Begin MSDataGridLib.DataGrid dgBarangIn 
-         Height          =   4215
+      Width           =   5055
+      Begin VB.CommandButton Command7 
+         Caption         =   ">>"
+         Height          =   615
+         Left            =   4200
+         TabIndex        =   19
+         Top             =   4200
+         Width           =   735
+      End
+      Begin VB.CommandButton Command6 
+         Caption         =   ">"
+         Height          =   615
+         Left            =   3360
+         TabIndex        =   18
+         Top             =   4200
+         Width           =   735
+      End
+      Begin VB.CommandButton Command5 
+         Caption         =   "<"
+         Height          =   615
+         Left            =   2520
+         TabIndex        =   17
+         Top             =   4200
+         Width           =   735
+      End
+      Begin VB.CommandButton Command4 
+         Caption         =   "<<"
+         Height          =   615
+         Left            =   1680
+         TabIndex        =   16
+         Top             =   4200
+         Width           =   735
+      End
+      Begin MSDataGridLib.DataGrid dgbarang 
+         Height          =   3735
          Left            =   120
-         TabIndex        =   21
+         TabIndex        =   15
          Top             =   240
-         Width           =   5895
-         _ExtentX        =   10398
-         _ExtentY        =   7435
+         Width           =   4815
+         _ExtentX        =   8493
+         _ExtentY        =   6588
          _Version        =   393216
          HeadLines       =   1
          RowHeight       =   15
@@ -84,204 +113,138 @@ Begin VB.Form FrmBarangIn
             EndProperty
          EndProperty
       End
-      Begin VB.CommandButton Command10 
-         Caption         =   ">>"
-         Height          =   615
-         Left            =   5400
-         TabIndex        =   20
-         Top             =   4560
-         Width           =   735
-      End
-      Begin VB.CommandButton Command9 
-         Caption         =   ">"
-         Height          =   615
-         Left            =   4560
-         TabIndex        =   19
-         Top             =   4560
-         Width           =   735
-      End
-      Begin VB.CommandButton Command8 
-         Caption         =   "<"
-         Height          =   615
-         Left            =   3720
-         TabIndex        =   18
-         Top             =   4560
-         Width           =   735
-      End
-      Begin VB.CommandButton Command7 
-         Caption         =   "<<"
-         Height          =   615
-         Left            =   2880
-         TabIndex        =   17
-         Top             =   4560
-         Width           =   735
-      End
    End
    Begin VB.Frame Frame1 
-      Appearance      =   0  'Flat
-      BackColor       =   &H80000005&
-      ForeColor       =   &H80000008&
-      Height          =   5295
+      Caption         =   "Frame1"
+      Height          =   4935
       Left            =   120
       TabIndex        =   0
       Top             =   120
-      Width           =   3735
-      Begin VB.CommandButton Command6 
-         Caption         =   ". . ."
-         Height          =   375
-         Left            =   2880
-         TabIndex        =   16
-         Top             =   2280
-         Width           =   735
-      End
-      Begin VB.CommandButton Command5 
-         Caption         =   ". . ."
-         Height          =   375
-         Left            =   2880
-         TabIndex        =   15
-         Top             =   1440
-         Width           =   735
-      End
+      Width           =   3375
       Begin VB.CommandButton Command3 
          Caption         =   "DELETE"
          Height          =   615
-         Left            =   2520
+         Left            =   2280
          TabIndex        =   14
-         Top             =   4560
-         Width           =   1095
+         Top             =   4200
+         Width           =   975
       End
       Begin VB.CommandButton Command2 
          Caption         =   "UPDATE"
          Height          =   615
-         Left            =   1320
+         Left            =   1200
          TabIndex        =   13
-         Top             =   4560
-         Width           =   1095
+         Top             =   4200
+         Width           =   975
       End
       Begin VB.CommandButton Command1 
          Caption         =   "ADD"
          Height          =   615
          Left            =   120
          TabIndex        =   12
-         Top             =   4560
-         Width           =   1095
+         Top             =   4200
+         Width           =   975
       End
-      Begin VB.TextBox vendor 
+      Begin VB.TextBox password 
          Appearance      =   0  'Flat
          Height          =   375
+         IMEMode         =   3  'DISABLE
          Left            =   120
+         PasswordChar    =   "*"
          TabIndex        =   11
-         Top             =   3960
-         Width           =   3495
+         Top             =   3720
+         Width           =   3015
       End
-      Begin VB.TextBox jumlah 
+      Begin VB.TextBox username 
          Appearance      =   0  'Flat
          Height          =   375
          Left            =   120
          TabIndex        =   9
-         Top             =   3120
-         Width           =   3495
+         Top             =   2880
+         Width           =   3015
       End
-      Begin VB.TextBox userid 
+      Begin VB.TextBox ktp 
          Appearance      =   0  'Flat
-         Enabled         =   0   'False
          Height          =   375
          Left            =   120
          TabIndex        =   7
-         Top             =   2280
-         Width           =   2655
+         Top             =   2040
+         Width           =   3015
       End
-      Begin VB.TextBox barangid 
+      Begin VB.TextBox nama 
          Appearance      =   0  'Flat
-         Enabled         =   0   'False
          Height          =   375
          Left            =   120
          TabIndex        =   5
-         Top             =   1440
-         Width           =   2655
+         Top             =   1200
+         Width           =   3015
       End
       Begin VB.TextBox id 
          Appearance      =   0  'Flat
-         Enabled         =   0   'False
          Height          =   375
          Left            =   120
          TabIndex        =   3
-         Top             =   600
-         Width           =   2655
+         Top             =   480
+         Width           =   3015
       End
       Begin VB.Label Label5 
-         Appearance      =   0  'Flat
-         BackColor       =   &H80000005&
-         Caption         =   "VENDOR"
-         ForeColor       =   &H80000008&
+         Caption         =   "PASSWORD"
          Height          =   255
          Left            =   120
          TabIndex        =   10
-         Top             =   3600
-         Width           =   735
+         Top             =   3360
+         Width           =   1575
       End
       Begin VB.Label Label4 
-         Appearance      =   0  'Flat
-         BackColor       =   &H80000005&
-         Caption         =   "JUMLAH"
-         ForeColor       =   &H80000008&
+         Caption         =   "USERNAME"
          Height          =   255
          Left            =   120
          TabIndex        =   8
-         Top             =   2760
-         Width           =   735
+         Top             =   2520
+         Width           =   1215
       End
       Begin VB.Label Label3 
-         Appearance      =   0  'Flat
-         BackColor       =   &H80000005&
-         Caption         =   "ID USER"
-         ForeColor       =   &H80000008&
+         Caption         =   "KTP"
          Height          =   255
          Left            =   120
          TabIndex        =   6
-         Top             =   1920
-         Width           =   975
+         Top             =   1680
+         Width           =   615
       End
       Begin VB.Label Label2 
-         Appearance      =   0  'Flat
-         BackColor       =   &H80000005&
-         Caption         =   "ID BARANG"
-         ForeColor       =   &H80000008&
+         Caption         =   "NAMA"
          Height          =   255
          Left            =   120
          TabIndex        =   4
-         Top             =   1080
-         Width           =   975
+         Top             =   960
+         Width           =   615
       End
       Begin VB.Label Label1 
-         Appearance      =   0  'Flat
-         BackColor       =   &H80000005&
          Caption         =   "ID"
-         ForeColor       =   &H80000008&
          Height          =   255
          Left            =   120
          TabIndex        =   2
          Top             =   240
-         Width           =   1095
+         Width           =   735
       End
    End
 End
-Attribute VB_Name = "FrmBarangIn"
+Attribute VB_Name = "frmUser"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Dim databarangin As New ADODB.Recordset
+Dim databarang As New ADODB.Recordset
 Dim isempty As Boolean
 
 Private Sub Command1_Click()
 checkEmpty
 If isempty = False Then
     On Error GoTo addError
-    query = "insert into barang_masuk values ('', '" & barangid.Text & "', '" & userid.Text & "', " & jumlah.Text & ", '" & vendor.Text & "', '')"
+    query = "insert into user values ('', '" & nama.Text & "', '" & ktp.Text & "', '" & username.Text & "', md5('" & password.Text & "'))"
     conn.Execute query
-    updateDG
     MsgBox "Berhasil menambahkan data", vbInformation, "Sukses"
+    updateDG
     kosongkan
     Exit Sub
 addError:
@@ -291,20 +254,11 @@ Else
 End If
 End Sub
 
-Private Sub Command10_Click()
-If Not databarangin.AbsolutePosition = databarangin.RecordCount Then
-        databarangin.MoveLast
-        isitext
-    Else
-        'MsgBox "Sudah data yang paling awal", vbInformation, "Information"
-    End If
-End Sub
-
 Private Sub Command2_Click()
 checkEmpty
 If isempty = False Then
     On Error GoTo addError
-    query = "update barang_masuk set id_barang = '" & barangid.Text & "', id_user = '" & userid.Text & "', jumlah = " & jumlah.Text & ", vendor = '" & vendor.Text & "' where id = " & id.Text & ""
+    query = "update user set nama = '" & nama.Text & "', ktp = '" & ktp.Text & "', username = '" & username.Text & "', password= md5('" & password.Text & "') where id = " & id.Text & ""
     conn.Execute query
     MsgBox "Berhasil mengubah data", vbInformation, "Sukses"
     updateDG
@@ -321,7 +275,7 @@ Private Sub Command3_Click()
 checkEmpty
 If isempty = False Then
     On Error GoTo addError
-    query = "delete from barang_masuk where id = " & id.Text & ""
+    query = "delete from user where id = " & id.Text & ""
     conn.Execute query
     MsgBox "Berhasil menghapus data", vbInformation, "Sukses"
     updateDG
@@ -334,45 +288,44 @@ Else
 End If
 End Sub
 
-Private Sub Command5_Click()
-    frmData.table = 1
-    frmData.kolom = "barang"
-    frmData.Show
-End Sub
-
-Private Sub Command6_Click()
-    frmData.table = 1
-    frmData.kolom = "user"
-    frmData.Show
-End Sub
-
-Private Sub Command7_Click()
-If Not databarangin.BOF Then
-        databarangin.MoveFirst
+Private Sub Command4_Click()
+If Not databarang.AbsolutePosition = 0 Then
+        databarang.MoveFirst
         isitext
+    Else
+        'MsgBox "Sudah data yang paling awal", vbInformation, "Information"
     End If
 End Sub
 
-Private Sub Command8_Click()
-If Not databarangin.AbsolutePosition = 1 Then
-        databarangin.MovePrevious
+Private Sub Command5_Click()
+If Not databarang.AbsolutePosition = 1 Then
+        databarang.MovePrevious
         isitext
     Else
         MsgBox "Sudah data yang paling awal", vbInformation, "Information"
     End If
 End Sub
 
-Private Sub Command9_Click()
-If Not databarangin.AbsolutePosition = databarangin.RecordCount Then
-        databarangin.MoveNext
+Private Sub Command6_Click()
+If Not databarang.AbsolutePosition = databarang.RecordCount Then
+        databarang.MoveNext
         isitext
     Else
         MsgBox "Sudah data yang paling akhir", vbInformation, "Information"
     End If
 End Sub
 
-Private Sub dgbarangin_Click()
-    isitext
+Private Sub Command7_Click()
+If Not databarang.AbsolutePosition = databarang.RecordCount Then
+        databarang.MoveLast
+        isitext
+    Else
+        'MsgBox "Sudah data yang paling awal", vbInformation, "Information"
+    End If
+End Sub
+
+Private Sub dgbarang_Click()
+isitext
 End Sub
 
 Private Sub Form_Load()
@@ -380,15 +333,15 @@ Private Sub Form_Load()
 End Sub
 
 Private Sub isitext()
-id.Text = dgBarangIn.Columns(0).Text
-barangid.Text = dgBarangIn.Columns(1).Text
-userid.Text = dgBarangIn.Columns(2).Text
-jumlah.Text = dgBarangIn.Columns(3).Text
-vendor.Text = dgBarangIn.Columns(4).Text
+id.Text = dgBarang.Columns(0).Text
+nama.Text = dgBarang.Columns(1).Text
+ktp.Text = dgBarang.Columns(2).Text
+username.Text = dgBarang.Columns(3).Text
+password.Text = dgBarang.Columns(4).Text
 End Sub
 
 Private Sub checkEmpty()
-If barangid.Text = "" Or userid.Text = "" Or jumlah.Text = "" Or vendor.Text = "" Then
+If nama.Text = "" Or ktp.Text = "" Or username.Text = "" Or password.Text = "" Then
     isempty = True
 Else
     isempty = False
@@ -396,15 +349,16 @@ End If
 End Sub
 
 Private Sub updateDG()
-    Set databarangin = New ADODB.Recordset
-    databarangin.Open "select id, id_barang, id_user, jumlah, vendor from barang_masuk", conn
-    Set dgBarangIn.DataSource = databarangin
+    Set databarang = New ADODB.Recordset
+    databarang.Open "select * from user", conn
+    Set dgBarang.DataSource = databarang
 End Sub
 
 Private Sub kosongkan()
 id.Text = ""
-barangid.Text = ""
-userid.Text = ""
-jumlah.Text = ""
-vendor.Text = ""
+nama.Text = ""
+ktp.Text = ""
+username.Text = ""
+password.Text = ""
 End Sub
+

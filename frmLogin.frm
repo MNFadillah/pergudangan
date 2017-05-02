@@ -87,11 +87,11 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private isEmpty As Boolean
+Private isempty As Boolean
 
 Private Sub Command1_Click()
     Call checkEmpty
-    If isEmpty = False Then
+    If isempty = False Then
         Dim login As New ADODB.Recordset
         login.Open "select*from user where username = '" & Text1.Text & "' and password = md5('" & Text2.Text & "')", conn
         If login.RecordCount > 0 Then
@@ -108,9 +108,9 @@ End Sub
 
 Private Sub checkEmpty()
     If Text1.Text = "" Or Text2.Text = "" Then
-        isEmpty = True
+        isempty = True
     Else
-        isEmpty = False
+        isempty = False
     End If
     
 End Sub

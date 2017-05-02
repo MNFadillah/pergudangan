@@ -19,48 +19,15 @@ Begin VB.Form frmBarang
       TabIndex        =   1
       Top             =   0
       Width           =   8175
-      Begin VB.CommandButton cmdlast 
-         Caption         =   ">>"
-         Height          =   615
-         Left            =   7200
-         TabIndex        =   17
-         Top             =   3960
-         Width           =   855
-      End
-      Begin VB.CommandButton cmdnext 
-         Caption         =   ">"
-         Height          =   615
-         Left            =   6240
-         TabIndex        =   16
-         Top             =   3960
-         Width           =   855
-      End
-      Begin VB.CommandButton cmdprev 
-         Caption         =   "<"
-         Height          =   615
-         Left            =   5280
-         TabIndex        =   15
-         Top             =   3960
-         Width           =   855
-      End
-      Begin VB.CommandButton cmdfirst 
-         Caption         =   "<<"
-         Height          =   615
-         Left            =   4320
-         TabIndex        =   14
-         Top             =   3960
-         Width           =   855
-      End
       Begin MSDataGridLib.DataGrid dgBarang 
-         Height          =   3495
+         Height          =   3615
          Left            =   120
-         TabIndex        =   2
-         Top             =   360
+         TabIndex        =   17
+         Top             =   240
          Width           =   7935
          _ExtentX        =   13996
-         _ExtentY        =   6165
+         _ExtentY        =   6376
          _Version        =   393216
-         Appearance      =   0
          HeadLines       =   1
          RowHeight       =   15
          BeginProperty HeadFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
@@ -116,6 +83,38 @@ Begin VB.Form frmBarang
             EndProperty
          EndProperty
       End
+      Begin VB.CommandButton cmdlast 
+         Caption         =   ">>"
+         Height          =   615
+         Left            =   7200
+         TabIndex        =   16
+         Top             =   3960
+         Width           =   855
+      End
+      Begin VB.CommandButton cmdnext 
+         Caption         =   ">"
+         Height          =   615
+         Left            =   6240
+         TabIndex        =   15
+         Top             =   3960
+         Width           =   855
+      End
+      Begin VB.CommandButton cmdprev 
+         Caption         =   "<"
+         Height          =   615
+         Left            =   5280
+         TabIndex        =   14
+         Top             =   3960
+         Width           =   855
+      End
+      Begin VB.CommandButton cmdfirst 
+         Caption         =   "<<"
+         Height          =   615
+         Left            =   4320
+         TabIndex        =   13
+         Top             =   3960
+         Width           =   855
+      End
    End
    Begin VB.Frame Frame1 
       Appearance      =   0  'Flat
@@ -130,7 +129,7 @@ Begin VB.Form frmBarang
          Appearance      =   0  'Flat
          Height          =   375
          Left            =   240
-         TabIndex        =   13
+         TabIndex        =   12
          Top             =   3360
          Width           =   3375
       End
@@ -138,7 +137,7 @@ Begin VB.Form frmBarang
          Caption         =   "DELETE"
          Height          =   615
          Left            =   2640
-         TabIndex        =   11
+         TabIndex        =   10
          Top             =   3840
          Width           =   1095
       End
@@ -146,7 +145,7 @@ Begin VB.Form frmBarang
          Caption         =   "UPDATE"
          Height          =   615
          Left            =   1440
-         TabIndex        =   10
+         TabIndex        =   9
          Top             =   3840
          Width           =   1095
       End
@@ -154,7 +153,7 @@ Begin VB.Form frmBarang
          Caption         =   "ADD"
          Height          =   615
          Left            =   240
-         TabIndex        =   9
+         TabIndex        =   8
          Top             =   3840
          Width           =   1095
       End
@@ -163,7 +162,7 @@ Begin VB.Form frmBarang
          Height          =   735
          Left            =   240
          MultiLine       =   -1  'True
-         TabIndex        =   8
+         TabIndex        =   7
          Top             =   2280
          Width           =   3375
       End
@@ -171,7 +170,7 @@ Begin VB.Form frmBarang
          Appearance      =   0  'Flat
          Height          =   375
          Left            =   240
-         TabIndex        =   7
+         TabIndex        =   6
          ToolTipText     =   "Masukkan Nama Barang"
          Top             =   1560
          Width           =   3375
@@ -181,7 +180,7 @@ Begin VB.Form frmBarang
          Enabled         =   0   'False
          Height          =   375
          Left            =   240
-         TabIndex        =   6
+         TabIndex        =   5
          Top             =   720
          Width           =   3375
       End
@@ -192,7 +191,7 @@ Begin VB.Form frmBarang
          ForeColor       =   &H80000008&
          Height          =   375
          Left            =   120
-         TabIndex        =   12
+         TabIndex        =   11
          Top             =   3120
          Width           =   735
       End
@@ -203,7 +202,7 @@ Begin VB.Form frmBarang
          ForeColor       =   &H80000008&
          Height          =   255
          Left            =   120
-         TabIndex        =   5
+         TabIndex        =   4
          Top             =   2040
          Width           =   1335
       End
@@ -214,7 +213,7 @@ Begin VB.Form frmBarang
          ForeColor       =   &H80000008&
          Height          =   255
          Left            =   120
-         TabIndex        =   4
+         TabIndex        =   3
          Top             =   1200
          Width           =   1215
       End
@@ -225,7 +224,7 @@ Begin VB.Form frmBarang
          ForeColor       =   &H80000008&
          Height          =   255
          Left            =   120
-         TabIndex        =   3
+         TabIndex        =   2
          Top             =   360
          Width           =   1455
       End
@@ -236,12 +235,12 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Dim dataBarang As ADODB.Recordset
-Dim isEmpty As Boolean
+Dim databarang As ADODB.Recordset
+Dim isempty As Boolean
 
-Private Sub cmdAdd_Click()
+Private Sub cmdadd_Click()
 checkEmpty
-If isEmpty = False Then
+If isempty = False Then
     On Error GoTo addError
     Dim tgl As Date
     tgl = Format(Now, "dd-MM-yy")
@@ -262,7 +261,7 @@ End Sub
 
 Private Sub cmdChange_Click()
 checkEmpty
-If isEmpty = False Then
+If isempty = False Then
     On Error GoTo addError
     query = "update barang set nama = '" & txnama.Text & "', deskripsi = '" & txdesc.Text & "', stok = " & txStok.Text & " where id = " & txid.Text & ""
     conn.Execute query
@@ -277,9 +276,9 @@ Else
 End If
 End Sub
 
-Private Sub cmdDelete_Click()
+Private Sub cmddelete_Click()
 checkEmpty
-If isEmpty = False Then
+If isempty = False Then
     On Error GoTo addError
     query = "delete from barang where id = " & txid.Text & ""
     conn.Execute query
@@ -295,15 +294,15 @@ End If
 End Sub
 
 Private Sub cmdfirst_Click()
-    If Not dataBarang.BOF Then
-        dataBarang.MoveFirst
+    If Not databarang.BOF Then
+        databarang.MoveFirst
         isitext
     End If
 End Sub
 
 Private Sub cmdlast_Click()
-If Not dataBarang.AbsolutePosition = dataBarang.RecordCount - 1 Then
-        dataBarang.MoveLast
+If Not databarang.AbsolutePosition = databarang.RecordCount Then
+        databarang.MoveLast
         isitext
     Else
         'MsgBox "Sudah data yang paling awal", vbInformation, "Information"
@@ -311,8 +310,8 @@ If Not dataBarang.AbsolutePosition = dataBarang.RecordCount - 1 Then
 End Sub
 
 Private Sub cmdnext_Click()
-If Not dataBarang.AbsolutePosition = dataBarang.RecordCount Then
-        dataBarang.MoveNext
+If Not databarang.AbsolutePosition = databarang.RecordCount Then
+        databarang.MoveNext
         isitext
     Else
         MsgBox "Sudah data yang paling akhir", vbInformation, "Information"
@@ -320,8 +319,8 @@ If Not dataBarang.AbsolutePosition = dataBarang.RecordCount Then
 End Sub
 
 Private Sub cmdprev_Click()
-    If Not dataBarang.AbsolutePosition = 1 Then
-        dataBarang.MovePrevious
+    If Not databarang.AbsolutePosition = 1 Then
+        databarang.MovePrevious
         isitext
     Else
         MsgBox "Sudah data yang paling awal", vbInformation, "Information"
@@ -338,16 +337,16 @@ Private Sub Form_Load()
 End Sub
 
 Private Sub updateDG()
-    Set dataBarang = New ADODB.Recordset
-    dataBarang.Open "select id, nama, deskripsi, stok from barang", conn
-    Set dgBarang.DataSource = dataBarang
+    Set databarang = New ADODB.Recordset
+    databarang.Open "select id, nama, deskripsi, stok from barang", conn
+    Set dgBarang.DataSource = databarang
 End Sub
 
 Private Sub checkEmpty()
     If txnama.Text = "" Or txdesc.Text = "" Or txStok.Text = "" Then
-        isEmpty = True
+        isempty = True
     Else
-        isEmpty = False
+        isempty = False
     End If
 End Sub
 

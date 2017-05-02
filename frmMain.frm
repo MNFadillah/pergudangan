@@ -30,6 +30,9 @@ Begin VB.Form frmMain
       Begin VB.Menu barang_out 
          Caption         =   "Barang Keluar"
       End
+      Begin VB.Menu user 
+         Caption         =   "User"
+      End
    End
    Begin VB.Menu transaksi 
       Caption         =   "Transaksi"

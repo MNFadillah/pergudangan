@@ -10,8 +10,10 @@ End Function
 
 Sub main()
     If koneksi = True Then
-        frmLogin.Show
+        'frmLogin.Show
         'FrmBarangIn.Show
+        'frmBarangOut.Show
+        frmUser.Show
     Else
         MsgBox "database gagal, coba sekali lagi"
         End

@@ -11,13 +11,13 @@ Begin VB.Form frmData
    ScaleWidth      =   6675
    StartUpPosition =   3  'Windows Default
    Begin MSDataGridLib.DataGrid DataGrid1 
-      Height          =   4455
+      Height          =   4575
       Left            =   120
       TabIndex        =   0
       Top             =   120
       Width           =   6375
       _ExtentX        =   11245
-      _ExtentY        =   7858
+      _ExtentY        =   8070
       _Version        =   393216
       HeadLines       =   1
       RowHeight       =   15
@@ -87,15 +87,15 @@ Dim dataItem As New ADODB.Recordset
 Private Sub DataGrid1_Click()
 If table = 1 Then
     If kolom = "barang" Then
-        FrmBarangIn.barangid = DataGrid1.Columns(0).Text
+        FrmBarangIn.barangId = DataGrid1.Columns(0).Text
     Else
-        FrmBarangIn.userid = DataGrid1.Columns(0).Text
+        FrmBarangIn.userId = DataGrid1.Columns(0).Text
     End If
 ElseIf table = 2 Then
     If kolom = "barang" Then
-        'frmBarangOut.barangid = DataGrid1.Columns(0).Text
+        frmBarangOut.barangId = DataGrid1.Columns(0).Text
     Else
-        'frmBarangOut.userid = DataGrid1.Columns(0).Text
+        frmBarangOut.userId = DataGrid1.Columns(0).Text
     End If
 End If
 Unload Me
