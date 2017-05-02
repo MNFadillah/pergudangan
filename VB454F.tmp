@@ -293,12 +293,13 @@ End If
 End Sub
 
 Private Sub Command10_Click()
-If Not databarangin.AbsolutePosition = databarangin.RecordCount Then
+If Not databarangin.AbsolutePosition = databarangin.RecordCount - 1 Then
         databarangin.MoveLast
         isitext
     Else
         'MsgBox "Sudah data yang paling awal", vbInformation, "Information"
     End If
+End Sub
 End Sub
 
 Private Sub Command2_Click()
@@ -355,12 +356,13 @@ If Not databarangin.BOF Then
 End Sub
 
 Private Sub Command8_Click()
-If Not databarangin.AbsolutePosition = 1 Then
+If Not databarangin.AbsolutePosition = databarangin.RecordCount Then
         databarangin.MovePrevious
         isitext
     Else
-        MsgBox "Sudah data yang paling awal", vbInformation, "Information"
+        MsgBox "Sudah data yang paling akhir", vbInformation, "Information"
     End If
+End Sub
 End Sub
 
 Private Sub Command9_Click()
@@ -370,6 +372,7 @@ If Not databarangin.AbsolutePosition = databarangin.RecordCount Then
     Else
         MsgBox "Sudah data yang paling akhir", vbInformation, "Information"
     End If
+End Sub
 End Sub
 
 Private Sub dgbarangin_Click()

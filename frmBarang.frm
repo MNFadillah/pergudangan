@@ -17,7 +17,7 @@ Begin VB.Form frmBarang
       Height          =   4695
       Left            =   4200
       TabIndex        =   1
-      Top             =   120
+      Top             =   0
       Width           =   8175
       Begin VB.CommandButton cmdlast 
          Caption         =   ">>"
@@ -124,7 +124,7 @@ Begin VB.Form frmBarang
       Height          =   4695
       Left            =   120
       TabIndex        =   0
-      Top             =   120
+      Top             =   0
       Width           =   3975
       Begin VB.TextBox txStok 
          Appearance      =   0  'Flat
@@ -297,14 +297,14 @@ End Sub
 Private Sub cmdfirst_Click()
     If Not dataBarang.BOF Then
         dataBarang.MoveFirst
-        isiText
+        isitext
     End If
 End Sub
 
 Private Sub cmdlast_Click()
 If Not dataBarang.AbsolutePosition = dataBarang.RecordCount - 1 Then
         dataBarang.MoveLast
-        isiText
+        isitext
     Else
         'MsgBox "Sudah data yang paling awal", vbInformation, "Information"
     End If
@@ -313,7 +313,7 @@ End Sub
 Private Sub cmdnext_Click()
 If Not dataBarang.AbsolutePosition = dataBarang.RecordCount Then
         dataBarang.MoveNext
-        isiText
+        isitext
     Else
         MsgBox "Sudah data yang paling akhir", vbInformation, "Information"
     End If
@@ -322,14 +322,15 @@ End Sub
 Private Sub cmdprev_Click()
     If Not dataBarang.AbsolutePosition = 1 Then
         dataBarang.MovePrevious
-        isiText
+        isitext
     Else
         MsgBox "Sudah data yang paling awal", vbInformation, "Information"
     End If
 End Sub
 
+
 Private Sub dgBarang_Click()
-    isiText
+    isitext
 End Sub
 
 Private Sub Form_Load()
@@ -357,7 +358,7 @@ Private Sub kosongkan()
     txStok.Text = ""
 End Sub
 
-Private Sub isiText()
+Private Sub isitext()
     txid = dgBarang.Columns(0).Text
     txnama = dgBarang.Columns(1).Text
     txdesc = dgBarang.Columns(2).Text

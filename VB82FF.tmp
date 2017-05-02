@@ -24,7 +24,7 @@ Begin VB.Form FrmBarangIn
          Caption         =   ">>"
          Height          =   615
          Left            =   5400
-         TabIndex        =   21
+         TabIndex        =   22
          Top             =   4560
          Width           =   735
       End
@@ -32,7 +32,7 @@ Begin VB.Form FrmBarangIn
          Caption         =   ">"
          Height          =   615
          Left            =   4560
-         TabIndex        =   20
+         TabIndex        =   21
          Top             =   4560
          Width           =   735
       End
@@ -40,7 +40,7 @@ Begin VB.Form FrmBarangIn
          Caption         =   "<"
          Height          =   615
          Left            =   3720
-         TabIndex        =   19
+         TabIndex        =   20
          Top             =   4560
          Width           =   735
       End
@@ -48,14 +48,14 @@ Begin VB.Form FrmBarangIn
          Caption         =   "<<"
          Height          =   615
          Left            =   2880
-         TabIndex        =   18
+         TabIndex        =   19
          Top             =   4560
          Width           =   735
       End
       Begin MSDataGridLib.DataGrid dgbarangin 
          Height          =   4215
          Left            =   120
-         TabIndex        =   17
+         TabIndex        =   18
          Top             =   240
          Width           =   6015
          _ExtentX        =   10610
@@ -131,7 +131,7 @@ Begin VB.Form FrmBarangIn
          Caption         =   ". . ."
          Height          =   375
          Left            =   2880
-         TabIndex        =   16
+         TabIndex        =   17
          Top             =   2280
          Width           =   735
       End
@@ -139,8 +139,16 @@ Begin VB.Form FrmBarangIn
          Caption         =   ". . ."
          Height          =   375
          Left            =   2880
-         TabIndex        =   15
+         TabIndex        =   16
          Top             =   1440
+         Width           =   735
+      End
+      Begin VB.CommandButton Command4 
+         Caption         =   ". . ."
+         Height          =   375
+         Left            =   2880
+         TabIndex        =   15
+         Top             =   600
          Width           =   735
       End
       Begin VB.CommandButton Command3 
@@ -167,7 +175,7 @@ Begin VB.Form FrmBarangIn
          Top             =   4560
          Width           =   1095
       End
-      Begin VB.TextBox vendor 
+      Begin VB.TextBox Text5 
          Appearance      =   0  'Flat
          Height          =   375
          Left            =   120
@@ -175,7 +183,7 @@ Begin VB.Form FrmBarangIn
          Top             =   3960
          Width           =   3495
       End
-      Begin VB.TextBox jumlah 
+      Begin VB.TextBox Text4 
          Appearance      =   0  'Flat
          Height          =   375
          Left            =   120
@@ -183,7 +191,7 @@ Begin VB.Form FrmBarangIn
          Top             =   3120
          Width           =   3495
       End
-      Begin VB.TextBox userid 
+      Begin VB.TextBox Text3 
          Appearance      =   0  'Flat
          Enabled         =   0   'False
          Height          =   375
@@ -192,7 +200,7 @@ Begin VB.Form FrmBarangIn
          Top             =   2280
          Width           =   2655
       End
-      Begin VB.TextBox barangid 
+      Begin VB.TextBox Text2 
          Appearance      =   0  'Flat
          Enabled         =   0   'False
          Height          =   375
@@ -201,7 +209,7 @@ Begin VB.Form FrmBarangIn
          Top             =   1440
          Width           =   2655
       End
-      Begin VB.TextBox id 
+      Begin VB.TextBox Text1 
          Appearance      =   0  'Flat
          Enabled         =   0   'False
          Height          =   375
@@ -272,140 +280,12 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Dim databarangin As New ADODB.Recordset
-Dim isEmpty As Boolean
-
-Private Sub Command1_Click()
-checkEmpty
-If isEmpty = False Then
-    On Error GoTo addError
-    query = "insert into barang_masuk values ('', '" & barangid.Text & "', '" & userid.Text & "', " & jumlah.Text & ", '" & vendor.Text & "', '')"
-    conn.Execute query
-    updateDG
-    MsgBox "Berhasil menambahkan data", vbInformation, "Sukses"
-    kosongkan
-    Exit Sub
-addError:
-    MsgBox "Gagal menambahkan data " & Err.Description, vbInformation
-Else
-    MsgBox "Pilih data terlebih dahulu", vbCritical, "Warning"
-End If
-End Sub
-
-Private Sub Command10_Click()
-If Not databarangin.AbsolutePosition = databarangin.RecordCount Then
-        databarangin.MoveLast
-        isitext
-    Else
-        'MsgBox "Sudah data yang paling awal", vbInformation, "Information"
-    End If
-End Sub
-
-Private Sub Command2_Click()
-checkEmpty
-If isEmpty = False Then
-    On Error GoTo addError
-    query = "update barang_masuk set id_barang = '" & barangid.Text & "', id_user = '" & userid.Text & "', jumlah = " & jumlah.Text & ", vendor = '" & vendor.Text & "' where id = " & id.Text & ""
-    conn.Execute query
-    MsgBox "Berhasil mengubah data", vbInformation, "Sukses"
-    updateDG
-    kosongkan
-    Exit Sub
-addError:
-    MsgBox "Gagal mengubah data " & Err.Description, vbInformation
-Else
-    MsgBox "Isi data dengan lengkap ", vbCritical, "Warning"
-End If
-End Sub
-
-Private Sub Command3_Click()
-checkEmpty
-If isEmpty = False Then
-    On Error GoTo addError
-    query = "delete from barang_masuk where id = " & id.Text & ""
-    conn.Execute query
-    MsgBox "Berhasil menghapus data", vbInformation, "Sukses"
-    updateDG
-    kosongkan
-    Exit Sub
-addError:
-    MsgBox "Gagal menghapus data " & Err.Description, vbInformation
-Else
-    MsgBox "Pilih data terlebih dahulu", vbCritical, "Warning"
-End If
-End Sub
-
-Private Sub Command5_Click()
-    frmData.table = 1
-    frmData.kolom = "barang"
-    frmData.Show
-End Sub
-
-Private Sub Command6_Click()
-    frmData.table = 1
-    frmData.kolom = "user"
-    frmData.Show
-End Sub
-
-Private Sub Command7_Click()
-If Not databarangin.BOF Then
-        databarangin.MoveFirst
-        isitext
-    End If
-End Sub
-
-Private Sub Command8_Click()
-If Not databarangin.AbsolutePosition = 1 Then
-        databarangin.MovePrevious
-        isitext
-    Else
-        MsgBox "Sudah data yang paling awal", vbInformation, "Information"
-    End If
-End Sub
-
-Private Sub Command9_Click()
-If Not databarangin.AbsolutePosition = databarangin.RecordCount Then
-        databarangin.MoveNext
-        isitext
-    Else
-        MsgBox "Sudah data yang paling akhir", vbInformation, "Information"
-    End If
-End Sub
-
-Private Sub dgbarangin_Click()
-    isitext
-End Sub
-
 Private Sub Form_Load()
-    updateDG
-End Sub
 
-Private Sub isitext()
-id.Text = dgbarangin.Columns(0).Text
-barangid.Text = dgbarangin.Columns(1).Text
-userid.Text = dgbarangin.Columns(2).Text
-jumlah.Text = dgbarangin.Columns(3).Text
-vendor.Text = dgbarangin.Columns(4).Text
-End Sub
-
-Private Sub checkEmpty()
-If barangid.Text = "" Or userid.Text = "" Or jumlah.Text = "" Or vendor.Text = "" Then
-    isEmpty = True
-Else
-    isEmpty = False
-End If
 End Sub
 
 Private Sub updateDG()
-    Set databarangin = New ADODB.Recordset
-    databarangin.Open "select id, id_barang, id_user, jumlah, vendor from barang_masuk", conn
-    Set dgbarangin.DataSource = databarangin
-End Sub
-
-Private Sub kosongkan()
-id.Text = ""
-barangid.Text = ""
-userid.Text = ""
-jumlah.Text = ""
-vendor.Text = ""
+    Set dataBarangIN = New ADODB.Recordset
+    dataBarangIN.Open "select id, id_barang, id_user, jumlah, vendor from barang_masuk", conn
+    Set dgbarangin.DataSource = dataBarangIN
 End Sub
